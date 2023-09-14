@@ -1,12 +1,10 @@
 import './Cart.css'
 
-const Cart = () => {
+const Cart = ({coursesName, count}) => {
     return (
-        <div className="cart-container bg-gray-300">
-            <h2 className="pl-4 ">Credit Hour Remaining </h2>
-            <hr />
-            <h2>akasdmk</h2>
-        </div>
+        <>
+            <h2 className='pl-4 mt-2'>{count} {coursesName}</h2>
+        </>
     );
 };
 
