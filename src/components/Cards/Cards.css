@@ -1,0 +1,24 @@
+.cards{
+    width: 270px;
+    height: 370px;
+    border-radius: 15px;
+    background: #FFFFFF;
+}
+.btn{
+    border-radius: 8px;
+    border: 1px solid #2F80ED;
+    background: #2F80ED;
+}
+
+.details{
+    color: rgba(28, 27, 27, 0.60);
+    font-size: small;
+}
+
+.title{
+    color: #1C1B1B;
+}
+
+.test{
+    border: 2px solid green;
+}
