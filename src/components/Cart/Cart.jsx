@@ -1,9 +1,19 @@
 import './Cart.css'
 
-const Cart = ({coursesName, count}) => {
+const Cart = ({ coursesName }) => {
+
     return (
         <>
-            <h2 className='pl-4 mt-2'>{count} {coursesName}</h2>
+            <div className='bg-red-300'>
+                
+                <div className=''>
+                    <h2 className='pl-4'>{coursesName}</h2>
+                    <hr />
+                </div>
+
+            </div>
+
+
         </>
     );
 };

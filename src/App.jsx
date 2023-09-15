@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useState } from 'react'
 import './App.css'
 import Cards from './components/Cards/Cards'
@@ -16,24 +17,28 @@ function App() {
       .then(data => setCourses(data))
   }, [])
 
-  const handleSelect = course_name => {
+  const handleSelect = (course_name) => {
     const isExist = coursesName.find(item => item === course_name);
-    let count = 0;
 
     if (isExist) {
-      return alert('already exixst');
+      return alert('already exist');
     } else {
-      coursesName.forEach((item) =>{
+      let count = 0
+      coursesName.forEach(item => {
         count = count + 1;
+        setCount(count)
+        console.log(count);
       })
       const newCourseName = [...coursesName, course_name];
       setCoursesName(newCourseName);
-      setCount(count);
+
       // console.log(coursesName);
 
     }
 
   }
+
+  // const count = coursesName.length;
   return (
     <>
       <Header></Header>
@@ -43,15 +48,25 @@ function App() {
             courses.map((course, idx) => <Cards key={idx} handleSelect={handleSelect} course={course}></Cards>)
           }
         </div>
-        <div className='w-72 ml-5 bg-gray-300'>
-          <h2 className="pl-4 ">Credit Hour Remaining </h2>
-          <p>{count} {coursesName}</p>
-          {
-            coursesName.map((coursesName, idx) => <Cart key={idx} count={count} coursesName={coursesName} ></Cart>)
-          }
+        <div className='w-72 ml-5'>
+          <div className='bg-slate-100 px-4  rounded-xl'>
+            <h2 className="py-3 font-semibold text-blue-500">Credit Hour Remaining </h2>
+            <hr />
+            <h2 className='py-2'><b>Course Name</b></h2>
+            {
+              coursesName.map((coursesName) => (
+                <div className='pb-3'>
+                  <h2 className='details'>{coursesName}</h2>
+                </div>
+              ))
+            }
+            <hr />
+            <h2 className='py-2 font-semibold'>Total Credit Hour :</h2>
+            <hr />
+            <h2 className='py-2 font-semibold'>Total Price :</h2>
+          </div>
         </div>
       </div>
-
 
 
     </>
