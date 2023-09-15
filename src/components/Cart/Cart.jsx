@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-key */
 import './Cart.css'
 
-const Cart = ({ selectedCourse, totalCredit }) => {
+const Cart = ({ selectedCourse, totalCredit, remainingCredit, prices }) => {
 
     return (
         <>
             <div className='bg-slate-100 px-4  rounded-xl'>
-            <h2 className="py-3 font-semibold text-blue-500">Credit Hour Remaining </h2>
+            <h2 className="py-3 font-semibold text-blue-500">Credit Hour Remaining {remainingCredit} hr</h2>
             <hr />
             <h2 className='py-2'><b>Course Name</b></h2>
             {
@@ -20,7 +20,7 @@ const Cart = ({ selectedCourse, totalCredit }) => {
             <hr />
             <h2 className='py-2 font-semibold'>Total Credit Hour : {totalCredit} </h2>
             <hr />
-            <h2 className='py-2 font-semibold'>Total Price :</h2>
+            <h2 className='py-2 font-semibold'>Total Price : {prices} USD</h2>
           </div>
         </>
     );

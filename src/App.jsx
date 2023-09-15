@@ -10,6 +10,8 @@ function App() {
   const [courses, setCourses] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState([]);
   const [totalCredit, setTotalCredit] = useState(0);
+  const [remainingCredit, setRemainingCredit] = useState(20);
+  const [prices, setPrice] = useState(0);
 
   useEffect(() => {
     fetch('courses.json')
@@ -19,22 +21,29 @@ function App() {
 
   const handleSelect = (course) => {
     const isExist = selectedCourse.find(item => item.course_name === course.course_name);
-    if(isExist){
+    if (isExist) {
       return alert("Already available")
-    }
-    else{
+    } else {
       let newCredit = course.credit;
+      let newPrice = course.price;
       selectedCourse.forEach(item => {
         newCredit = newCredit + item.credit;
-         
+        newPrice = newPrice + item.price;
+
       })
       setTotalCredit(newCredit);
-      setSelectedCourse([...selectedCourse,course]);
+
+      const remainingTotal = 20 - newCredit;
+      setRemainingCredit(remainingTotal);
+
+      setPrice(newPrice);
+
+      setSelectedCourse([...selectedCourse, course]);
 
     }
-    
+
   }
-  
+
   return (
     <>
       <Header></Header>
@@ -45,7 +54,7 @@ function App() {
           }
         </div>
         <div className='w-72 ml-5'>
-          <Cart totalCredit={totalCredit} selectedCourse={selectedCourse}></Cart>
+          <Cart totalCredit={totalCredit} remainingCredit={remainingCredit} prices={prices} selectedCourse={selectedCourse}></Cart>
         </div>
       </div>
 
