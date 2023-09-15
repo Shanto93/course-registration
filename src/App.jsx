@@ -8,8 +8,8 @@ import { useEffect } from 'react'
 
 function App() {
   const [courses, setCourses] = useState([]);
-  const [coursesName, setCoursesName] = useState([]);
-  const [count, setCount] = useState(0);
+  const [selectedCourse, setSelectedCourse] = useState([]);
+  const [totalCredit, setTotalCredit] = useState(0);
 
   useEffect(() => {
     fetch('courses.json')
@@ -17,28 +17,24 @@ function App() {
       .then(data => setCourses(data))
   }, [])
 
-  const handleSelect = (course_name) => {
-    const isExist = coursesName.find(item => item === course_name);
-
-    if (isExist) {
-      return alert('already exist');
-    } else {
-      let count = 0
-      coursesName.forEach(item => {
-        count = count + 1;
-        setCount(count)
-        console.log(count);
+  const handleSelect = (course) => {
+    const isExist = selectedCourse.find(item => item.course_name === course.course_name);
+    if(isExist){
+      return alert("Already available")
+    }
+    else{
+      let newCredit = course.credit;
+      selectedCourse.forEach(item => {
+        newCredit = newCredit + item.credit;
+         
       })
-      const newCourseName = [...coursesName, course_name];
-      setCoursesName(newCourseName);
-
-      // console.log(coursesName);
+      setTotalCredit(newCredit);
+      setSelectedCourse([...selectedCourse,course]);
 
     }
-
+    
   }
-
-  // const count = coursesName.length;
+  
   return (
     <>
       <Header></Header>
@@ -49,22 +45,7 @@ function App() {
           }
         </div>
         <div className='w-72 ml-5'>
-          <div className='bg-slate-100 px-4  rounded-xl'>
-            <h2 className="py-3 font-semibold text-blue-500">Credit Hour Remaining </h2>
-            <hr />
-            <h2 className='py-2'><b>Course Name</b></h2>
-            {
-              coursesName.map((coursesName) => (
-                <div className='pb-3'>
-                  <h2 className='details'>{coursesName}</h2>
-                </div>
-              ))
-            }
-            <hr />
-            <h2 className='py-2 font-semibold'>Total Credit Hour :</h2>
-            <hr />
-            <h2 className='py-2 font-semibold'>Total Price :</h2>
-          </div>
+          <Cart totalCredit={totalCredit} selectedCourse={selectedCourse}></Cart>
         </div>
       </div>
 

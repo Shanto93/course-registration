@@ -1,6 +1,7 @@
 import './Cards.css'
 const Cards = ({ course, handleSelect }) => {
     const { img, course_name, credit, price, course_details } = course;
+    // console.log(course);
     return (
         <div className="">
             <div className="cards">
@@ -19,7 +20,7 @@ const Cards = ({ course, handleSelect }) => {
                         </svg></p>
                         <p className='details'>Credit: {credit} hr</p>
                     </div>
-                    <button onClick={() => handleSelect(course_name)} className='text-center w-full p-1 rounded-xl text-base font-bold text-white btn mt-1'>Select</button>
+                    <button onClick={() => handleSelect(course,credit)} className='text-center w-full p-1 rounded-xl text-base font-bold text-white btn mt-1'>Select</button>
                 </div>
             </div>
         </div>
