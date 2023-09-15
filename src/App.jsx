@@ -29,19 +29,19 @@ function App() {
       selectedCourse.forEach(item => {
         newCredit = newCredit + item.credit;
         newPrice = newPrice + item.price;
-
       })
-      setTotalCredit(newCredit);
 
       const remainingTotal = 20 - newCredit;
-      setRemainingCredit(remainingTotal);
 
-      setPrice(newPrice);
-
-      setSelectedCourse([...selectedCourse, course]);
-
+      if (newCredit > 20) {
+        return alert("Total Credit is more than 20");
+      } else {
+        setTotalCredit(newCredit);
+        setRemainingCredit(remainingTotal);
+        setPrice(newPrice);
+        setSelectedCourse([...selectedCourse, course]);
+      }
     }
-
   }
 
   return (
@@ -49,16 +49,16 @@ function App() {
       <Header></Header>
       <div className='ml-10 flex'>
         <div className='grid grid-cols-3 gap-4'>
+
           {
             courses.map((course, idx) => <Cards key={idx} handleSelect={handleSelect} course={course}></Cards>)
           }
+
         </div>
         <div className='w-72 ml-5'>
           <Cart totalCredit={totalCredit} remainingCredit={remainingCredit} prices={prices} selectedCourse={selectedCourse}></Cart>
         </div>
       </div>
-
-
     </>
   )
 }

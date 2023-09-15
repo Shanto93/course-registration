@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './Cards.css'
 const Cards = ({ course, handleSelect }) => {
     const { img, course_name, credit, price, course_details } = course;
@@ -27,4 +28,8 @@ const Cards = ({ course, handleSelect }) => {
     );
 };
 
+Cards.propTypes = {
+    course: PropTypes.func.isRequired,
+    handleSelect: PropTypes.func.isRequired
+}
 export default Cards;
