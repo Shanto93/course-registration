@@ -22,7 +22,7 @@ function App() {
   const handleSelect = (course) => {
     const isExist = selectedCourse.find(item => item.course_name === course.course_name);
     if (isExist) {
-      return alert("Already available")
+      return alert("This course is already availabe in the list.");
     } else {
       let newCredit = course.credit;
       let newPrice = course.price;
@@ -34,7 +34,7 @@ function App() {
       const remainingTotal = 20 - newCredit;
 
       if (newCredit > 20) {
-        return alert("Total Credit is more than 20");
+        return alert("Total Credit is more than 20 and remaining credit hour is less than 0.");
       } else {
         setTotalCredit(newCredit);
         setRemainingCredit(remainingTotal);

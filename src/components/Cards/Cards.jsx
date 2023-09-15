@@ -5,7 +5,7 @@ const Cards = ({ course, handleSelect }) => {
     // console.log(course);
     return (
         <div className="">
-            <div className="cards">
+            <div className="bg-slate-100 cards">
                 <img className='w-full' src={img} alt="" />
                 <div className='mt-3'>
                     <h2 className='text-center font-bold text-base p-2 title'>{course_name}</h2>
