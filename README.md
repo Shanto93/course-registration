@@ -67,7 +67,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 1. Start the development server:
    ```bash
    npm start
-2. Open your web browser and go to [http://localhost:3000](https://course-registration-by-shanto.netlify.app/) to use the application.
+2. Open your web browser and go to (https://course-registration-by-shanto.netlify.app/) to use the application.
 
 ## Contributing
 
