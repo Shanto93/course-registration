@@ -10,7 +10,6 @@ This is a course selection application built with React. It allows users to brow
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
