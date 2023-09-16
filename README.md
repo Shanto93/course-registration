@@ -56,3 +56,24 @@ Follow these instructions to get a copy of the project up and running on your lo
 
    ```bash
    git clone https://github.com/your-username/course-selection-app.git
+2. Change to the project directory:
+   ```bash
+   cd course-selection-app
+3. Install the required dependencies:
+   ```bash
+   npm install
+   
+## Usage
+
+1. Start the development server:
+   ```bash
+   npm start
+2. Open your web browser and go to http://localhost:3000 to use the application.
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your fork.
+5. Create a pull request with a clear description of your changes.
