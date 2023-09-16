@@ -47,15 +47,15 @@ function App() {
   return (
     <>
       <Header></Header>
-      <div className='ml-10 flex'>
-        <div className='grid grid-cols-3 gap-4'>
+      <div className='ml-10 flex flex-col lg:flex-row '>
+        <div className='grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4'>
 
           {
             courses.map((course, idx) => <Cards key={idx} handleSelect={handleSelect} course={course}></Cards>)
           }
 
         </div>
-        <div className='w-72 ml-5'>
+        <div className='mt-20 ml-0 w-72 md:mt-4  lg:mt-0 lg:ml-5'>
           <Cart totalCredit={totalCredit} remainingCredit={remainingCredit} prices={prices} selectedCourse={selectedCourse}></Cart>
         </div>
       </div>
